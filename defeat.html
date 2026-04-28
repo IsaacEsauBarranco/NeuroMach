@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You lose</title>
+  <link href="./public/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white w-[420px] p-10 rounded-3xl shadow-xl text-center space-y-8">
+
+        <!-- Icono -->
+        <div class="w-16 h-16 mx-auto bg-green-100 text-green-600 rounded-full flex items-center justify-center text-2xl">
+            🏆
+        </div>
+
+        <!-- Texto -->
+        <div class="space-y-2">
+            <h1 class="text-3xl font-bold text-gray-800">You Lose!</h1>
+            <p class="text-gray-400 text-sm leading-relaxed px-4">
+                ¡SE ACABO EL TIEMPO! PERDISTE
+            </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex gap-4">
+            <div class="flex-1 bg-gray-100 p-5 rounded-2xl space-y-1">
+                <p class="text-xs text-gray-400 tracking-wide">TIEMPO</p>
+                <p id="finalTime" class="text-lg font-bold text-gray-800">00:00</p>
+            </div>
+
+            <div class="flex-1 bg-gray-100 p-5 rounded-2xl space-y-1">
+                <p class="text-xs text-gray-400 tracking-wide">MOVIMIENTOS</p>
+                <p id="finalMoves" class="text-lg font-bold text-gray-800">0</p>
+            </div>
+        </div>
+
+        <!-- Botón -->
+        <button onclick="playAgain()" 
+            class="w-full bg-orange-500 text-white py-4 rounded-full font-semibold text-lg hover:bg-orange-600 transition">
+            ↻ Play Again
+        </button>
+
+    </div>
+
+    <script>
+    function playAgain() {
+    window.location.href = "index.html";
+    }
+
+    const time = localStorage.getItem("finalTime");
+    const moves = localStorage.getItem("finalMoves");
+
+    document.getElementById("finalTime").textContent = time || "00:00";
+    document.getElementById("finalMoves").textContent = moves || "0";
+
+    // SONIDO DE DERROTA
+    const defeatSound = new Audio("sounds/defeat.mp3");
+    defeatSound.volume = 0.4;
+
+    document.addEventListener("click", () => {
+    defeatSound.currentTime = 0;
+    defeatSound.play();
+    }, { once: true });
+    </script>
+</body>
+</html>
+
+

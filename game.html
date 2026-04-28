@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NeuroMatch</title>
+  <link href="./public/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+    <!-- npm run dev -->
+    <header class="w-full bg-white shadow-sm px-6 py-4 flex items-center justify-between rounded-xl">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl">
+                🧩
+            </div>
+            <span class="text-lg font-semibold text-gray-800">
+                Memorama
+            </span>
+        </div>
+        
+        <h1 class="text-orange-500 font-semibold text-lg">
+            NeuroMatch
+        </h1>
+
+        <!-- Tiempo -->
+        <div class="flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-medium">
+            ⏱<span id="timer">00:00</span>
+        </div>
+    </header>
+
+    <section class="w-full px-6 mt-6 flex items-center justify-between">
+        
+        <!-- BOTONES -->
+        <div class="flex items-center gap-4">
+            <button id="startBtn" class="flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-orange-600 transition">
+                ▶ Comenzar juego
+            </button>
+
+            <button id="restartBtn" class="flex items-center gap-2 border-2 border-orange-300 text-orange-500 px-6 py-3 rounded-full font-semibold hover:bg-orange-100 transition">
+                ↻ Reiniciar
+            </button>
+        </div>
+
+        <!-- PANEL -->
+        <div class="bg-white px-6 py-4 rounded-2xl shadow-sm flex items-center gap-8">
+
+            <!-- MOVES -->
+            <div class="text-center">
+                <p class="text-gray-400 text-sm tracking-widest">MOVIMIENTOS</p>
+                <p id="moves" class="text-2xl font-bold text-orange-500">0</p>
+            </div>
+
+            <div class="w-px h-10 bg-gray-200"></div>
+
+            <!-- PAIRS -->
+            <div class="text-center">
+                <p class="text-gray-400 text-sm tracking-widest">PARES</p>
+                <p id="pairs" class="text-2xl font-bold text-gray-600">0/10</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABLERO -->
+    <section class="w-full mt-10 flex justify-center">
+
+        <div id="board" class="grid grid-cols-5 gap-6"></div>
+        
+    </section>
+    <script src="./src/js/game.js"></script>
+</body>
+</html>
